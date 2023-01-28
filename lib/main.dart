@@ -17,7 +17,12 @@ class MyApp extends StatelessWidget {
         'home': ( _ ) => HomePage(),
         'mapa': ( _ ) => MapaPage(),
       },
-      
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Colors.deepPurple),
+        primaryColor:  Colors.deepPurple,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.deepPurple),
+        
+      ),
     );
   }
 }
