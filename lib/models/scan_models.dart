@@ -7,8 +7,8 @@ String scanModelToJson(ScanModel data) => json.encode(data.toJson());
 
 class ScanModel {
     ScanModel({
-        required this.id,
-        required this.tipo,
+        this.id,
+        this.tipo,
         required this.valor,
     }) {
 
@@ -20,8 +20,8 @@ class ScanModel {
 
     }
 
-    int id;
-    String tipo;
+    int? id;
+    String? tipo;
     String valor;
 /*
     LatLng getLatLng() {
