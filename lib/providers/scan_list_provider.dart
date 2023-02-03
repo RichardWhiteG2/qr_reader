@@ -41,7 +41,8 @@ class ScanListProvider extends ChangeNotifier {
   }
   borrarScanPorId ( int id ) async {
     await DBProvider.db.deleteScan(id);
-    this.cargarScansPorTipo(this.tipoSeleccionado);
+    //Se omite la siguiente linea ya que se tiene el Widget Dismissble en mapas_pages
+    //this.cargarScansPorTipo(this.tipoSeleccionado);
     
   }
 

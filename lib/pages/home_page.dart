@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_reader/pages/direcciones_page.dart';
 import 'package:qr_reader/pages/mapas_pages.dart';
 import 'package:qr_reader/providers/db_provider.dart';
+import 'package:qr_reader/providers/scan_list_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import 'package:qr_reader/widgets/custom_navigatorbar.dart';
 import 'package:qr_reader/widgets/scan_button.dart';
@@ -20,7 +21,10 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.delete_forever),
-            onPressed: (){}, 
+            onPressed: (){
+              Provider.of<ScanListProvider>(context, listen: false)
+              .borrarTodos();
+            }, 
           )
         ],
       ),
@@ -48,13 +52,18 @@ class _HomePageBody extends StatelessWidget {
     //final nuevoScan = new ScanModel(valor:'http//google.com' );
     //DBProvider.db.nuevoScan(nuevoScan);
     //DBProvider.db.getScanById(13).then((scan) => print(scan!.valor));
-    DBProvider.db.deleteAllScan().then(print);
-    DBProvider.db.getTodosLosScans().then(print);
+    //DBProvider.db.deleteAllScan().then(print);
+    //DBProvider.db.getTodosLosScans().then(print);
     
+    //Usar el ScanListProvider
+    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
+      scanListProvider.cargarScansPorTipo('geo');
         return MapasPage();
       case 1: 
+      scanListProvider.cargarScansPorTipo('http');
         return DireccionesPage();
       default:
         return MapasPage();
