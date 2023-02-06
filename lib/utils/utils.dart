@@ -20,3 +20,4 @@ launchURL( BuildContext context, ScanModel scan  ) async {
   }
 
 }
+//${applicationName} se quito de name en application en AndroidManifest

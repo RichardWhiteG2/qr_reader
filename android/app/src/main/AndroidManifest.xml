@@ -10,7 +10,7 @@
     </queries>
    <application
         android:label="qr_reader"
-        android:name="${applicationName}"
+        android:name="io.flutter.app.FlutterMultiDexApplication"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyCRCx6JFfxmFH90yBuPS5kVxX3jqwRzlHI"/>
